@@ -1,0 +1,9 @@
+name: CI/CD Container
+
+run-name: ${{ vicmukete }} building on ${{ github.ref }}
+
+on:
+  push:
+  branches:
+    - main
+    - event_branch
