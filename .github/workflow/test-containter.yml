@@ -3,14 +3,14 @@ name: CI/CD Container
 run-name: ${{ github.repository }} building on ${{ github.ref }}
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
 
 jobs:
 
-  Image Build:
+  build:
 
     runs-on: ubuntu-22.04
     steps:
@@ -25,7 +25,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/sample-image:latest .
+        id: build
+        run: docker build -f ./Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/sample-image:latest .
 
       - name: Push to Dockerhub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sample-image:latest
