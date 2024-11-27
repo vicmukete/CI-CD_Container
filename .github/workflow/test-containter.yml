@@ -3,7 +3,7 @@ name: CI/CD Container
 run-name: ${{ github.repository }} building on ${{ github.ref }}
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
