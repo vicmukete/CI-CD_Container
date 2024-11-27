@@ -27,6 +27,7 @@ jobs:
       - name: Build Image
         id: build
         run: docker build -f ./Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/sample-image:latest .
+        
 
       - name: Push to Dockerhub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sample-image:latest
