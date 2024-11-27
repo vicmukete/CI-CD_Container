@@ -1,18 +1,13 @@
 name: CI/CD Container
 
-run-name: ${{ github.repository }} building on ${{ github.ref }}
-
-on:
-  push:
-    branches:
-    - 'master'
+on: push
 
 
 jobs:
 
   build:
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       
       - uses: actions/checkout@v3
