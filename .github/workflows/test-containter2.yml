@@ -1,4 +1,4 @@
-name: CI/CD Container-2
+name: CI/CD Container-1
 
 on: push
 
@@ -20,8 +20,8 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
 
         - name: Build Image
-          run: docker build -f ./cicd-workflow\d2/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/sample-image-play:latest 
+          run: docker build -f ./cicd-workflow\d1/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/sample-image-pull:latest 
           
 
         - name: Push to Dockerhub
-          run: docker push ${{ secrets.DOCKER_USERNAME }}/sample-image-play:latest
+          run: docker push ${{ secrets.DOCKER_USERNAME }}/sample-image-pull:latest
